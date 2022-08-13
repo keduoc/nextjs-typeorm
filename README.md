@@ -5,6 +5,7 @@
 ## 启动数据库
 
 如果你没有创建过数据库，请运行
+
 ```bash
 mkdir blog-data
 docker run -v "$PWD/blog-data":/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=blog -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres:12.2
@@ -27,6 +28,12 @@ docker restart 容器id
 docker exec -it <id> bash
 psql -U blog
 CREATE DATABASE blog_development ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYPE 'en_US.utf8';
+
+
+\c blog_development
+\l
+\dt
+select * from users;
 ```
 
 ## 数据表
@@ -35,6 +42,12 @@ CREATE DATABASE blog_development ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYP
 
 ```
 yarn m:run
+
+Cannot find module '../../lib/getDatabaseConnection'
+Require stack:
+- /Users/luchao/private/nextjs-typeorm-3/dist/entity/User.js
+将 User.js 中的 getDatabaseConnection 相关代码注释重新 yarn dev、yarn m:run
+getDatabaseConnection 方法是为了注册时连接数据库的，生成表的时候可以先注释掉
 ```
 
 ## 开发
@@ -47,8 +60,7 @@ npm run dev
 
 ## 部署
 
-```bash 
+```bash
 yarn build
 yarn start
 ```
-
