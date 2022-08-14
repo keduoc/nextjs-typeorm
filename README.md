@@ -47,7 +47,7 @@ Cannot find module '../../lib/getDatabaseConnection'
 Require stack:
 - /Users/luchao/private/nextjs-typeorm-3/dist/entity/User.js
 将 User.js 中的 getDatabaseConnection 相关代码注释重新 yarn dev、yarn m:run
-getDatabaseConnection 方法是为了注册时连接数据库的，生成表的时候可以先注释掉
+getDatabaseConnection 方法是为了注册表中的具体数据时连接数据库的，生成空表的时候可以先注释掉
 ```
 
 ## 开发
@@ -63,4 +63,13 @@ npm run dev
 ```bash
 yarn build
 yarn start
+```
+
+## 设置环境变量
+
+```bash
+'export SECRET_COOKIE_PASSWORD=c2a85490-cc60-4f21-94e8-8dc5dd3220da'
+process.env.SECRET_COOKIE_PASSWORD  可以读到上面的环境变量
+
+不过只限定在刚刚设置的这个bash窗口中，重新打开的bash终端不共享
 ```
