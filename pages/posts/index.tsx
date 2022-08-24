@@ -29,8 +29,8 @@ const PostsIndex: NextPage<Props> = (props) => {
             </Link>
           )}
         </header>
-        {posts.map((post) => (
-          <div className="onePost">
+        {posts.map((post, index) => (
+          <div className="onePost" key={index}>
             <Link key={post.id} href={`/posts/${post.id}`}>
               <a>{post.title}</a>
             </Link>
