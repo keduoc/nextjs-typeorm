@@ -44,8 +44,8 @@ var SignIn = /*#__PURE__*/function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (this.username.trim() === '') {
-                  this.errors.username.push('请填写用户名');
+                if (this.username.trim() === "") {
+                  this.errors.username.push("请填写用户名");
                 }
 
                 _context.next = 3;
@@ -66,10 +66,10 @@ var SignIn = /*#__PURE__*/function () {
 
                 if (user) {
                   if (user.passwordDigest !== (0, _md["default"])(this.password)) {
-                    this.errors.password.push('密码与用户名不匹配');
+                    this.errors.password.push("密码与用户名不匹配");
                   }
                 } else {
-                  this.errors.username.push('用户名不存在');
+                  this.errors.username.push("用户名不存在");
                 }
 
               case 9:
