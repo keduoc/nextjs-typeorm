@@ -63,6 +63,12 @@ npm run dev
 ```bash
 yarn build
 yarn start
+
+阿里云：
+yarn install --production=false
+yarn build
+docker build . -t keduoc/node-web-app
+docker run --network=host -p 3000:3000 -d keduoc/node-web-app
 ```
 
 ## 设置环境变量
