@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <p>我是一个爱学习的人</p>
         <p>
           <Link href="/posts">
-            <a>文章列表</a>
+            <a>点击查看文章列表</a>
           </Link>
         </p>
       </div>
