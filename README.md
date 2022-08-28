@@ -69,6 +69,12 @@ yarn install --production=false
 yarn build
 docker build . -t keduoc/node-web-app
 docker run --network=host -p 3000:3000 -d keduoc/node-web-app
+
+
+最终优化到只需本地修改完之后：
+git push
+ssh blog@dev1 'bash -s' < bin/deploy.sh
+在本地完成部署
 ```
 
 ## 设置环境变量
@@ -78,4 +84,10 @@ docker run --network=host -p 3000:3000 -d keduoc/node-web-app
 process.env.SECRET_COOKIE_PASSWORD  可以读到上面的环境变量
 
 不过只限定在刚刚设置的这个bash窗口中，重新打开的bash终端不共享
+```
+
+## nginx
+
+```
+docker run --name keduoc-nginx --network=host -v /home/blog/nginx.conf:/etc/nginx/conf.d/default.conf -v /home/blog/app/.next/static/:/usr/share/nginx/html/_next/static/ -d nginx:1.19.1
 ```
